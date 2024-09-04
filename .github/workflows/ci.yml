@@ -31,16 +31,12 @@ jobs:
         npm install
         sudo apt install flatpak flatpak-builder elfutils
         npm run package && cd "out/Google Docs-linux-x64" && ls
-        npm run make && npm run publish
+        npm run make
     - uses: actions/upload-artifact@v3
       with:
         name: Linux
         path: out/make/*
-    - name: Use Snapcraft
-      run: |
-        snapcraft --help
-        snapcraft upload --release=stable "out/make/Google Docs-linux-x64.snap"
-  
+
   build-mac:
     name: macOS
     runs-on: macos-latest
@@ -68,7 +64,7 @@ jobs:
       run: |
         npm install
         npm install appdmg --save-dev
-        npm run publish
+        npm run make
     - uses: actions/upload-artifact@v3
       with:
         name: macOS
@@ -86,7 +82,7 @@ jobs:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         npm install
-        npm run publish
+        npm run make
     - uses: actions/upload-artifact@v3
       with:
         name: Windows
