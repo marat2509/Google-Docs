@@ -112,8 +112,7 @@ module.exports = {
             "libxtst6",
             "xdg-utils",
             "libatspi2.0-0",
-            "libuuid1",
-            "gnupg"
+            "libuuid1"
           ],
           categories: [
             'Graphics',
